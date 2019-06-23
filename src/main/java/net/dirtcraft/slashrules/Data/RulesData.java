@@ -67,7 +67,7 @@ public class RulesData {
 
     public List<Text> getRules() {
         if (rules.size()==0){
-            List<Text> empty = rules;
+            List<Text> empty = new ArrayList<>();
             empty.add(Text.of("There are no rules."));
             return empty;
         }
