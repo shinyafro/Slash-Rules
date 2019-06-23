@@ -63,8 +63,8 @@ public class CommandRegistrar {
                 .arguments(GenericArguments.optional(GenericArguments.integer(Text.of("line"))))
                 .child(help, "help", "?")
                 .child(setLine, "editline", "edit")
-                .child(addLine, "addline", "add")
-                .child(removeLine, "removeline", "deleteline", "remove", "delete")
+                .child(addLine, "addline", "setline", "set", "add")
+                .child(removeLine, "removeline", "deleteline", "remove", "delete", "del", "rem")
                 .child(other, "other")
                 .child(reload, "reload")
                 .build();
