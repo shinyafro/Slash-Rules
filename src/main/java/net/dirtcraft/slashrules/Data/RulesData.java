@@ -22,6 +22,7 @@ public class RulesData {
         fileLocation = new File (Slashrules.getInstance().getConfigDir().getParent(), "rules.cfg");
         try {
             if (!fileLocation.exists()) {
+                rules = new ArrayList<>();
                 boolean created = fileLocation.createNewFile();
                 if (!created) logger.error("SlashRules - did not create file");
             } else {
@@ -65,6 +66,11 @@ public class RulesData {
     }
 
     public List<Text> getRules() {
+        if (rules.size()==0){
+            List<Text> empty = rules;
+            empty.add(Text.of("There are no rules."));
+            return empty;
+        }
         return rules;
     }
 
