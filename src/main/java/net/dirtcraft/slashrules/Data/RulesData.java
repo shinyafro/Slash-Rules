@@ -65,7 +65,7 @@ public class RulesData {
                 InputStream in = con.getInputStream();
                 InputStreamReader inputStreamReader = new InputStreamReader(in)
                 ){
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
             immutableRules = gson.fromJson(inputStreamReader, ArrayList.class);
         } catch (IOException e){
             logger.error("slash-rules: "+e);
@@ -79,7 +79,7 @@ public class RulesData {
                 FileReader file = new FileReader(fileLocation);
                 BufferedReader filestream = new BufferedReader(file);
         ){
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
             mutableRules = gson.fromJson(filestream, ArrayList.class);
             if (mutableRules == null) mutableRules = new ArrayList<>();
         } catch (IOException e){
@@ -92,7 +92,7 @@ public class RulesData {
                 FileWriter file = new FileWriter(fileLocation);
                 BufferedWriter filestream = new BufferedWriter(file)
         ){
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
             gson.toJson(mutableRules, ArrayList.class, filestream);
             scheduledUpdate = false;
         } catch (IOException e){
