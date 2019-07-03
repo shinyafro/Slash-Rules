@@ -65,7 +65,7 @@ public class RulesData {
                 InputStream in = con.getInputStream();
                 InputStreamReader inputStreamReader = new InputStreamReader(in)
                 ){
-            Gson gson = new Gson();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
             immutableRules = gson.fromJson(inputStreamReader, ArrayList.class);
         } catch (IOException e){
             logger.error("slash-rules: "+e);

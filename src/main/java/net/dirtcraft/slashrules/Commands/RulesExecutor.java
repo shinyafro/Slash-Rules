@@ -33,11 +33,9 @@ public class RulesExecutor implements CommandExecutor {
         } else {
             int rule = line.get()-1;
             List<Text> rules = rulesData.getRules();
-            if (rules.size() > rule && rule >= 0){
-                src.sendMessage(rules.get(rule));
-            } else {
-                throw new CommandException(Text.of(Lang.EXCEPTION_DOES_NOT_EXIST));
-            }
+            if (rule < 0) throw new CommandException(Text.of(Lang.EXCEPTION_LINE_VALUE_SMALL));
+            if (rule >= rules.size()) throw new CommandException(Text.of(Lang.EXCEPTION_LINE_VALUE_BIG));
+            src.sendMessage(rules.get(rule));
         }
 
         return CommandResult.success();
