@@ -20,7 +20,7 @@ public class SetLineExecutor implements CommandExecutor {
         try {
             rulesData.setLine(line - 1, text); //Indexes start with 0, so we decrement it so it makes sense to normies.
         } catch (IllegalArgumentException e){
-            throw new CommandException(Text.of(Lang.EXCEPTION_DOES_NOT_EXIST));
+            throw new CommandException(Text.of(e.getMessage()));
         }
         return CommandResult.success();
     }

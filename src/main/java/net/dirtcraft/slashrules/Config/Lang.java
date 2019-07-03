@@ -2,7 +2,9 @@ package net.dirtcraft.slashrules.Config;
 
 public class Lang {
 
-    public static final String EXCEPTION_DOES_NOT_EXIST = "The rule specified does not exist!";
+    public static final String EXCEPTION_LINE_VALUE_PROTECTED = "This rule is protected.";
+    public static final String EXCEPTION_LINE_VALUE_SMALL = "Value needs to be greater then 0.";
+    public static final String EXCEPTION_LINE_VALUE_BIG = "There are not this many rules.";
 
     public static final String MAIN_DESCRIPTION = "Display the server rules.";
     public static final String OTHER_DESCRIPTION = "Show the server to someone.";
